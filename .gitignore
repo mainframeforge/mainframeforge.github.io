@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+.env.local
+
+# Editor & IDE
+.vscode/
+.idea/
+
+# Linux / Vim Temporary Files
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build Output
+dist/
+build/
