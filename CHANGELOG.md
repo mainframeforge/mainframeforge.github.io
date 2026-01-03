@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial project scaffolding and directory structure.
 - Infrastructure branding assets.
-- Client 
+- Client-side system boot simulation (`home.js`).
 - Developer profile aggregation page (`links.html`).
-- Google 
+- Codebase adherence to Google Style Guides (HTML/CSS/JS).
 - JSDoc type definitions for core logic.
