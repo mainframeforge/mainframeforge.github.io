@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Custom domain configuration (`CNAME`) for `mainframeforge.com`.
+- Repository governance templates (Issue/PR).
+- Security policy (`SECURITY.md`) for vulnerability reporting.
 ### Fixed
 - Restored missing text lines in v0.1.0 release notes section.
 
