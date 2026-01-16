@@ -86,6 +86,7 @@ img {
   animation: blink 1s infinite;
   color: var(--accent);
   content: "_";
+  margin-left: -15px;
 }
 
 .bio-container p {
