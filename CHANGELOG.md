@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Dynamic experience metric calculation (#10).
 ### Changed
 - Updated `links.html` metadata and short bio to reflect years of experience.
 - Updated cursor position to reflect real spacing when typing.
