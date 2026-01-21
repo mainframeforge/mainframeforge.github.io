@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Dynamic experience metric calculation (#10).
+- SEO configuration (robots/sitemap) (#12).
+- Metadata sanitization (#12).
 ### Changed
 - Updated `links.html` metadata and short bio to reflect years of experience.
 - Updated cursor position to reflect real spacing when typing.
