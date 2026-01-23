@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- Refactored `home.js` handshake logic to use `async/await` pattern (#17).
+- Refactored `home.js` handshake logic to use `async/await` pattern (#16).
 
 ## [0.1.2] - 2026-01-22
 ### Added
