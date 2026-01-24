@@ -8,6 +8,15 @@
 'use strict';
 
 /**
+ * Returns a promise that resolves after specific duration.
+ * @param {number} ms The duration to wait in milliseconds.
+ * @return {!Promise<void>}
+ */
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
  * Updates status and manages spinner.
  * @param {!HTMLElement} statusElement The target status element (nullable).
  * @param {string} message Status message to be displayed.
@@ -37,26 +46,23 @@ function updateStatus(statusElement, message, showSpinner = false) {
 
 /**
  * Initiates security handshake animation sequence.
- * @return {void}
+ * @return {!Promise<void>}
  */
-function handshakeSequence() {
+async function handshakeSequence() {
   const statusText = document.querySelector('.status-active');
 
   if (!statusText) {
     return;
   }
 
-  setTimeout(() => {
-    updateStatus(statusText, 'DIGITAL FINGERPRINT UNAUTHORIZED');
+  await delay(3500);
+  updateStatus(statusText, 'INITIALIZING SYSTEM PROTOCOLS...');
 
-    setTimeout(() => {
-      updateStatus(statusText, 'ESTABLISHING GUEST ACCESS...', true);
+  await delay(4500);
+  updateStatus(statusText, 'LOADING PUBLIC INTERFACE...', true);
 
-      setTimeout(() => {
-        window.location.href = './links.html';
-      }, 4000);
-    }, 4500);
-  }, 3500); 
+  await delay(4000);
+  window.location.href = './links.html';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
