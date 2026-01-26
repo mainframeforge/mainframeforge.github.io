@@ -2,7 +2,7 @@
  * Copyright (c) Dušan Mitrović
  * All Rights Reserved.
  *
- * @fileoverview Handles homepage logic.
+ * @fileoverview Kinetic grid visualization entry point.
  * @author Dušan Mitrović
  */
 'use strict';
