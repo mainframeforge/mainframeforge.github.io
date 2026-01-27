@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Refactored `home.js` handshake logic to use `async/await` pattern (#16).
+- Refactored `home.css` to act as a clean global style base (#18).
+### Removed
+- Legacy `.system-card` DOM structure from the home page (#18).
+- Security handshake/redirect sequence from `js/home.js` (#18).
 
 ## [0.1.2] - 2026-01-22
 ### Added
