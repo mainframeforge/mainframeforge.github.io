@@ -12,6 +12,8 @@
   --grid-major: rgba(6, 30, 41, 0.3);
   --grid-minor: rgba(6, 30, 41, 0.1);
   --text-main: #dcd7c9;
+  --z-index-content: 2;
+  --z-index-fx: 1;
 }
 
 * {
@@ -48,4 +50,19 @@ body::after {
   top: 0;
   width: 100%;
   z-index: 1;
+}
+
+#grid-canvas {
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-index-fx);
+}
+
+.main-container {
+  position: relative;
+  z-index: var(--z-index-content);
 }

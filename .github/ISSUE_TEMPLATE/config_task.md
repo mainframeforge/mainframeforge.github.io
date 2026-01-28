@@ -15,4 +15,3 @@ assignees: ''
 ### Verification
 - [ ] System remains stable
 - [ ] Changes verified in production
-
