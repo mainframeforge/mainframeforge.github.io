@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Implement viewport layering and z-index stack (#20).
 ### Changed
 - Refactored `home.js` handshake logic to use `async/await` pattern (#16).
 - Refactored `home.css` to act as a clean global style base (#18).
