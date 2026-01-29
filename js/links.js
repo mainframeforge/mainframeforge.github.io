@@ -8,6 +8,8 @@
  */
 'use strict';
 
+import { registerEventListener } from "./main.js";
+
 const ALERT_POPUP_ID = 'alert-popup-id';
 const DISCORD_BTN_ID = 'discord-btn';
 const EMAIL_BTN_ID = 'email-btn';
