@@ -20,7 +20,6 @@ export function registerEventListener(element, event, handlerFunc) {
   }
 
   element.addEventListener(event, (e) => {
-    e.preventDefault();
-    handlerFunc();
+    handlerFunc(e);
   });
 }
