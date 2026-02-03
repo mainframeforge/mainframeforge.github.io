@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implement viewport layering and z-index stack (#20).
 - Initialize kinetic grid canvas rendering context and event loops (#22).
 - Implement axial-proximity aperture scanning logic (#22).
+- Implement elastic spring physics for cursor tracking (#22).
 ### Changed
 - Refactored `home.js` handshake logic to use `async/await` pattern (#16).
 - Refactored `home.css` to act as a clean global style base (#18).

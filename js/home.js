@@ -42,6 +42,14 @@ const SCAN_RANGE = 120;
  * @const {number} Length of grid line.
  */
 const LINE_LEN = 180;
+/**
+ * @const {number} Physics spring stiffness.
+ */
+const STIFFNESS = 0.15;
+/**
+ * @const {number} Physics friction/damping.
+ */
+const FRICTION = 0.82;
 
 /**
  * Updates canvas dimensions and synchronizes physics state.
@@ -127,8 +135,16 @@ function drawLines(ctx, state, isVertical) {
  * @return {void}
  */
 function animate(ctx, state, timestamp) {
-  state.current.x = state.target.x;
-  state.current.y = state.target.y;
+  const ax = (state.target.x - state.current.x) * STIFFNESS;
+  const ay = (state.target.y - state.current.y) * STIFFNESS;
+
+  state.vel.x += ax;
+  state.vel.y += ay;
+  state.vel.x *= FRICTION;
+  state.vel.y *= FRICTION;
+
+  state.current.x += state.vel.x;
+  state.current.y += state.vel.y;
 
   ctx.clearRect(0, 0, state.dimensions.width, state.dimensions.height);
 
@@ -169,6 +185,10 @@ function initGridSystem() {
       y: 0
     },
     current: {
+      x: 0,
+      y: 0
+    },
+    vel: {
       x: 0,
       y: 0
     }
