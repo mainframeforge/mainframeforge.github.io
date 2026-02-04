@@ -8,6 +8,8 @@
  */
 'use strict';
 
+import { registerEventListener } from "./main.js";
+
 const ALERT_POPUP_ID = 'alert-popup-id';
 const DISCORD_BTN_ID = 'discord-btn';
 const EMAIL_BTN_ID = 'email-btn';
@@ -125,10 +127,12 @@ function updateExperienceMetric(elementId, startYear, suffixText) {
 const discordBtn = document.getElementById(DISCORD_BTN_ID);
 const emailBtn = document.getElementById(EMAIL_BTN_ID);
 
-registerEventListener(discordBtn, ON_ALERT_EVENT, () => {
+registerEventListener(discordBtn, ON_ALERT_EVENT, (e) => {
+  e.preventDefault();
   onBtnClicked(DISCORD_BTN_ID, DISCORD_ALERT_LABEL);
 });
-registerEventListener(emailBtn, ON_ALERT_EVENT, () => {
+registerEventListener(emailBtn, ON_ALERT_EVENT, (e) => {
+  e.preventDefault();
   onBtnClicked(EMAIL_BTN_ID, EMAIL_ALERT_LABEL);
 });
 registerEventListener(document, ON_DOM_CONTENT_LOADED, () => {

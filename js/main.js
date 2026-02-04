@@ -14,13 +14,12 @@
  * @param {!Function} handlerFunc Handles the target event.
  * @return {void}
  */
-function registerEventListener(element, event, handlerFunc) {
+export function registerEventListener(element, event, handlerFunc) {
   if (!element) {
     return;
   }
 
   element.addEventListener(event, (e) => {
-    e.preventDefault();
-    handlerFunc();
+    handlerFunc(e);
   });
 }
