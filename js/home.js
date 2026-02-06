@@ -50,6 +50,10 @@ const STIFFNESS = 0.15;
  * @const {number} Physics friction/damping.
  */
 const FRICTION = 0.82;
+/**
+ * @const {number} Maximum pixels per frame to prevent blinking.
+ */
+const MAX_VELOCITY = 50;
 
 /**
  * Updates canvas dimensions and synchronizes physics state.
@@ -66,11 +70,6 @@ function handleResize(canvas, state) {
 
   state.dimensions.cx = state.dimensions.width / 2;
   state.dimensions.cy = state.dimensions.height / 2;
-
-  if (state.target.x === 0 && state.target.y === 0) {
-    state.target.x = state.current.x = state.dimensions.cx;
-    state.target.y = state.current.y = state.dimensions.cy;
-  }
 }
 
 /**
@@ -135,6 +134,11 @@ function drawLines(ctx, state, isVertical) {
  * @return {void}
  */
 function animate(ctx, state, timestamp) {
+  if (!state.active) {
+    requestAnimationFrame((t) => animate(ctx, state, t));
+    return;
+  }
+
   const ax = (state.target.x - state.current.x) * STIFFNESS;
   const ay = (state.target.y - state.current.y) * STIFFNESS;
 
@@ -142,6 +146,9 @@ function animate(ctx, state, timestamp) {
   state.vel.y += ay;
   state.vel.x *= FRICTION;
   state.vel.y *= FRICTION;
+
+  state.vel.x = Math.max(Math.min(state.vel.x, MAX_VELOCITY), -MAX_VELOCITY);
+  state.vel.y = Math.max(Math.min(state.vel.y, MAX_VELOCITY), -MAX_VELOCITY);
 
   state.current.x += state.vel.x;
   state.current.y += state.vel.y;
@@ -174,6 +181,7 @@ function initGridSystem() {
    * Encapsulated state object for the kinetic engine.
    */
   const state = {
+    active: false,
     dimensions: {
       cx: 0,
       cy: 0,
@@ -201,6 +209,16 @@ function initGridSystem() {
   registerEventListener(document, ON_MOUSE_MOVE, (e) => {
     state.target.x = e.clientX;
     state.target.y = e.clientY;
+
+    if (!state.active) {
+      const deltaX = e.clientX - state.dimensions.cx;
+      const deltaY = e.clientY - state.dimensions.cy;
+
+      state.current.x = state.dimensions.cx - deltaX;
+      state.current.y = state.dimensions.cy - deltaY;
+
+      state.active = true;
+    }
   });
 
   handleResize(canvas, state);
