@@ -4,9 +4,7 @@
 ## Related Issue
 Closes #<!-- Enter Issue Number Here -->
 
-## Type of Change
-- [ ] `feat` (New feature)
-- [ ] `fix` (Bug fix)
-- [ ] `docs` (Documentation change)
-- [ ] `config` (Infrastructure/Build)
-- [ ] `refactor` (Code cleanup)
+## Verification
+- [ ] Acceptance Criteria met.
+- [ ] Style Guide respected.
+- [ ] Documentation updated.
