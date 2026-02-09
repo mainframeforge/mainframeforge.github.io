@@ -2,7 +2,7 @@
  * Copyright (c) Dušan Mitrović
  * All Rights Reserved.
  *
- * @fileoverview Handles clipboard copying and alert animations for the 
+ * @fileoverview Handles clipboard copying and alert animations for the
  * links page.
  * @author Dušan Mitrović
  */
@@ -59,7 +59,7 @@ async function handleClipboardCopy(alertElement, label, dataText) {
 /**
  * Triggers animations for the alert popup.
  * Clears animations timers to prevent animation conflicts.
- * @param {!HTMLElement} alertElement 
+ * @param {!HTMLElement} alertElement
  * @return {void}
 */
 function animateAlert(alertElement) {
