@@ -1,5 +1,6 @@
 /**
  * Copyright (c) Dušan Mitrović
+* 
  * All Rights Reserved.
  *
  * @fileoverview Handles clipboard copying and alert animations for the
@@ -140,4 +141,4 @@ registerEventListener(document, ON_DOM_CONTENT_LOADED, () => {
     EXPERIENCE_METRIC_ID,
     START_EXPERIENCE_YEAR,
     EXPERIENCE_METRIC_SUFFIX_TEXT);
-})
+});

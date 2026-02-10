@@ -13,5 +13,5 @@ assignees: ''
 <!-- e.g. DNS changes, GitHub settings, CI/CD -->
 
 ### Verification
-- [ ] System remains stable
-- [ ] Changes verified in production
+- [ ] System remains stable.
+- [ ] Changes verified in production.

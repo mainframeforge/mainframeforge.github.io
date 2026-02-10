@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implement `Coming soon...` animated placeholder (#30).
 ### Changed
 - Refactored Pull Request template verification (#31).
+- Standardize UI assets, templates, and syntax across codebase (#34).
 
 ## [0.1.3] - 2026-02-05
 ### Added

@@ -16,6 +16,6 @@ assignees: ''
 <!-- Technical implementation details. -->
 
 ### Acceptance Criteria
-- [ ] Criteria 1
-- [ ] Criteria 2
-- [ ] Documentation updated
+- [ ] Criteria 1.
+- [ ] Criteria 2.
+- [ ] Documentation updated.
