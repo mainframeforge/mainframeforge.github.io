@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Implement mirror grid entrance animation (#26).
+- Implement release issue template (#28). 
 
 ## [0.1.3] - 2026-02-05
 ### Added
