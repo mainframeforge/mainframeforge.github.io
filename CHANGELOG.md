@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Implement mirror grid entrance animation (#26).
 - Implement release issue template (#28).
+- Implement `Coming soon...` animated placeholder (#30).
 ### Changed
 - Refactored Pull Request template verification (#31).
 
