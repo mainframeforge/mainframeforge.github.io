@@ -1,5 +1,6 @@
 /**
  * Copyright (c) Dušan Mitrović
+ * 
  * All Rights Reserved.
  */
 
@@ -7,7 +8,7 @@
   --accent: #a27b5c;
   --bg-panel: #2c3639;
   --bg-void: #3d4e4f;
-  --border-spinner: rgba(162, 123, 92, 0.2);
+  --bg-gradient: rgba(162, 123, 92, 0.15);
   --dark-metal: #1a2224;
   --grid-major: rgba(6, 30, 41, 0.3);
   --grid-minor: rgba(6, 30, 41, 0.1);
@@ -71,7 +72,7 @@ body::after {
 .placeholder-container {
   animation: slideUp 2s cubic-bezier(0.2, 0.8, 0.2, 1);
   background-color: var(--bg-panel);
-  background-image: radial-gradient(var(--dark-metal) 1px, transparent 1px);
+  background-image: radial-gradient(var(--bg-gradient) 1px, transparent 1px);
   background-size: 15px 15px;
   border-radius: 1rem;
   border: 1px solid var(--accent);

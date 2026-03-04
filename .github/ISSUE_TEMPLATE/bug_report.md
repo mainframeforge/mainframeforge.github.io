@@ -16,10 +16,10 @@ assignees: ''
 <!-- What should have happened? -->
 
 ### Reproduction Steps
-1. Go to '...'
-2. Click on '...'
+1. Go to '...'.
+2. Click on '...'.
 3. Error appears.
 
 ### Environment
-- **OS:** [e.g. Arch Linux]
-- **Browser:** [e.g. Chrome 98]
+- **OS:** [e.g. Arch Linux].
+- **Browser:** [e.g. Chrome 98].

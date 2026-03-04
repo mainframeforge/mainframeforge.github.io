@@ -1,5 +1,6 @@
 /**
  * Copyright (c) Dušan Mitrović
+* 
  * All Rights Reserved.
  *
  * @fileoverview Core functions for MainframeForge ecosystem.
