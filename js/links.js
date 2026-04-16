@@ -142,3 +142,4 @@ registerEventListener(document, ON_DOM_CONTENT_LOADED, () => {
     START_EXPERIENCE_YEAR,
     EXPERIENCE_METRIC_SUFFIX_TEXT);
 });
+

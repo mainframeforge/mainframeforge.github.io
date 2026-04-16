@@ -24,3 +24,4 @@ export function registerEventListener(element, event, handlerFunc) {
     handlerFunc(e);
   });
 }
+

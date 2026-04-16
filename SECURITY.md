@@ -12,3 +12,4 @@
 If you discover a security vulnerability within MainframeForge, please send an e-mail to **dusan.mitrovic.developer@gmail.com**.
 
 We will respond within 48 hours. **Do not open public issues for security exploits.**
+
