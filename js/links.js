@@ -37,6 +37,9 @@ const ALERT_COPY_FAILED_TEXT = 'Copy failed :(';
 const START_EXPERIENCE_YEAR = 2017;
 const EXPERIENCE_METRIC_SUFFIX_TEXT = "+ Years Experience";
 
+const GIST_RAW_URL = "https://gist.githubusercontent.com/dusanmitrovic-dev/a276bd3df351ef09b1b187d81ab0fe03/raw/links-config.json";
+const LINKS_CONTAINER_ID = 'dynamic-links-container';
+
 let flyOutTimer;
 let hideTimer;
 
@@ -87,13 +90,9 @@ function animateAlert(alertElement) {
  * @param {string} label The human-readable label for the alert.
  * @return {!Promise<void>}
 */
-async function onBtnClicked(elementId, label) {
-  const btn = document.getElementById(elementId);
+async function onBtnClicked(element, label, dataText) {
   const alertNotice = document.getElementById(ALERT_POPUP_ID);
-  const dataText = btn.dataset.text;
-
   await handleClipboardCopy(alertNotice, label, dataText);
-
   animateAlert(alertNotice);
 }
 
@@ -125,21 +124,130 @@ function updateExperienceMetric(elementId, startYear, suffixText) {
   experienceMetricElement.innerHTML = `${years}${suffixText}`;
 }
 
+/**
+  * Calculates the symmetrical distribution of items across max 5 rows.
+  * Fills in this order to match visual symmetry: Row 2, Row 4, Row 1, Row 5, Row 3
+  * @param {number} totalItems The total number of the links to render.
+  * @return {number[]} Array of 5 numbers representing items per row.
+  */
+function calculateRowDistribution(totalItems) {
+  const maxItems = Math.min(totalItems, 15);
+  const baseCount = Math.floor(maxItems / 5);
+  const remainer = maxItems % 5;
+
+  const rows = [baseCount, baseCount, baseCount, baseCount, baseCount];
+
+  const fillOrder = [1, 3, 0, 4, 2];
+
+  for (let i = 0; i < remainer; i++) {
+    rows[fillOrder[i]]++;
+  }
+
+  return rows;
+}
+
+/**
+  * Creates a DOM element based on link configuration.
+  * @param {Object} linkData Configuration from JSON.
+  * @return {!HTMLElement} The generated anchor element.
+  */
+function createLinkElement(linkData) {
+  const el = document.createElement('a');
+  el.className = linkData.classes ? linkData.classes.join(' ') : 'list-item reveal-item';
+  el.dataset.text = linkData.hoverText || linkData.text;
+
+  if (linkData.type === 'url') {
+    el.href = linkData.url;
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
+  } else {
+    el.href = '#';
+    registerEventListener(el, ON_ALERT_EVENT, (e) => {
+      e.preventDefault();
+      onBtnClicked(el, linkData.text, linkData.hoverText);
+    });
+  }
+
+  if (linkData.customStyles) {
+    el.style.setProperty('--custom-bg', linkData.customStyles.bg);
+    el.style.setProperty('--custom-text', linkData.customStyles.text);
+    el.style.setProperty('--custom-hover-bg', linkData.customStyles.hoverBg);
+    el.style.setProperty('--custom-reveal-bg', linkData.customStyles.revealBg);
+  }
+
+  const contentDiv = document.createElement('span');
+  contentDiv.className = 'list-item-content';
+
+  if (linkData.icon) {
+    const img = document.createElement('img');
+    img.src = linkData.icon;
+    img.alt = '';
+    img.className = 'link-icon';
+    contentDiv.appendChild(img);
+  }
+
+  const textSpan = document.createElement('span');
+  textSpan.innerText = linkData.text;
+  contentDiv.appendChild(textSpan);
+
+  el.appendChild(contentDiv);
+  return el;
+}
+
+/**
+ * Fetches Gist data and orchestrates layout generation.
+ */
+async function initializeDynamicLinks() {
+  const container = document.getElementById(LINKS_CONTAINER_ID);
+  
+  if (!container) {
+    return;
+  }
+
+  try {
+    const res = await fetch(`${GIST_RAW_URL}?t=${Date.now()}`);
+
+    const linksData = await res.json();
+    container.innerHTML = '';
+
+    const distribution = calculateRowDistribution(linksData.length);
+    let currentDataIndex = 0;
+
+    distribution.forEach((itemsInThisRow) => {
+      if (itemsInThisRow === 0) {
+        return;
+      }
+
+      const rowEl = document.createElement('div');
+      rowEl.className = 'link-row';
+      
+      for (let i = 0; i < itemsInThisRow; i++) {
+        if (currentDataIndex >= linksData.length) {
+          break;
+        }
+        
+        const linkEl = createLinkElement(linksData[currentDataIndex]);
+        rowEl.appendChild(linkEl);
+        currentDataIndex++;
+      }
+
+      container.appendChild(rowEl);
+    });
+  } catch (error) {
+    console.error(error);
+    container.innerHTML = `<p style="color: red;">Error: Link interface offline.</p>`;
+  }
+}
+
 const discordBtn = document.getElementById(DISCORD_BTN_ID);
 const emailBtn = document.getElementById(EMAIL_BTN_ID);
 
-registerEventListener(discordBtn, ON_ALERT_EVENT, (e) => {
-  e.preventDefault();
-  onBtnClicked(DISCORD_BTN_ID, DISCORD_ALERT_LABEL);
-});
-registerEventListener(emailBtn, ON_ALERT_EVENT, (e) => {
-  e.preventDefault();
-  onBtnClicked(EMAIL_BTN_ID, EMAIL_ALERT_LABEL);
-});
 registerEventListener(document, ON_DOM_CONTENT_LOADED, () => {
   updateExperienceMetric(
     EXPERIENCE_METRIC_ID,
     START_EXPERIENCE_YEAR,
     EXPERIENCE_METRIC_SUFFIX_TEXT);
+
+  initializeDynamicLinks();
 });
 

@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactored Pull Request template verification (#31).
 - Standardize UI assets, templates, and syntax across codebase (#34).
 - Standardize issue templates and contribution guidelines (#38).
+- Implement dynamic links logic (#37).
 
 ## [0.1.3] - 2026-02-05
 ### Added
