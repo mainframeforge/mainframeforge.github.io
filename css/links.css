@@ -224,6 +224,46 @@ img {
   z-index: 1000;
 }
 
+.link-row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.link-row .list-item {
+  flex: 1;
+  min-width: 0;
+}
+
+.list-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.link-icon {
+  height: 20px;
+  width: 20px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.list-item.custom-colors {
+  background-color: var(--custom-bg) !important;
+  color: var(--custom-text) !important;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.list-item.custom-colors:hover {
+  background-color: var(--custom-hover-bg) !important;
+}
+
+.list-item.custom-colors.reveal-item::after {
+  background-color: var(--custom-reveal-bg) !important;
+  color: var(--custom-text) !important;
+}
+
 @keyframes blink {
   0%,
   100% {
