@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implement release issue template (#28).
 - Implement `Coming soon...` animated placeholder (#30).
 - Integrate Google Analytics 4 tracking scripts (#41).
+- Implement Cloudflare Worker proxy script for secure Discord webhooks (#42).
 
 ### Changed
 
