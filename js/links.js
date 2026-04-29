@@ -1,6 +1,6 @@
 /**
  * Copyright (c) Dušan Mitrović
-* 
+ *
  * All Rights Reserved.
  *
  * @fileoverview Handles clipboard copying and alert animations for the
