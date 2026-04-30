@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implement `Coming soon...` animated placeholder (#30).
 - Integrate Google Analytics 4 tracking scripts (#41).
 - Implement Cloudflare Worker proxy script for secure Discord webhooks (#42).
+- Implement client side session based notification trigger (#43).
 
 ### Changed
 
@@ -21,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Standardize UI assets, templates, and syntax across codebase (#34).
 - Standardize issue templates and contribution guidelines (#38).
 - Implement dynamic links logic (#37).
+- Enforce Google Style single quote string standards across worker proxy (#43).
 
 ## [0.1.3] - 2026-02-05
 
@@ -80,4 +82,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Developer profile aggregation page (`links.html`).
 - Codebase adherence to Google Style Guides (HTML/CSS/JS).
 - JSDoc type definitions for core logic.
+
+[Unreleased]: https://github.com/mainframeforge/mainframeforge.github.io/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/mainframeforge/mainframeforge.github.io/compare/v0.1.2...v0.1.3
+[0.1.2]: https://github.com/mainframeforge/mainframeforge.github.io/compare/v0.1.1...v0.1.2
+[0.1.1]: https://github.com/mainframeforge/mainframeforge.github.io/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/mainframeforge/mainframeforge.github.io/releases/tag/v0.1.0
 
