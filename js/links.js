@@ -9,7 +9,7 @@
  */
 'use strict';
 
-import { registerEventListener } from "./main.js";
+import { registerEventListener, notifyInteraction } from "./main.js";
 
 const ALERT_POPUP_ID = 'alert-popup-id';
 const DISCORD_BTN_ID = 'discord-btn';
@@ -160,11 +160,17 @@ function createLinkElement(linkData) {
     el.href = linkData.url;
     el.target = '_blank';
     el.rel = 'noopener noreferrer';
+
+    registerEventListener(el, 'click', () => {
+      notifyInteraction(linkData.text);
+    });
   } else {
     el.href = '#';
     registerEventListener(el, ON_ALERT_EVENT, (e) => {
       e.preventDefault();
       onBtnClicked(el, linkData.text, linkData.hoverText);
+
+      notifyInteraction(linkData.text);
     });
   }
 
