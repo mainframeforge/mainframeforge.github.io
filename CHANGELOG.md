@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integrate Google Analytics 4 tracking scripts (#41).
 - Implement Cloudflare Worker proxy script for secure Discord webhooks (#42).
 - Implement client side session based notification trigger (#43).
+- Implement persistent session tracking and interaction analytics (#47).
 
 ### Changed
 
